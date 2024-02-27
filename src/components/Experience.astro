@@ -1,0 +1,41 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [{
+      name: "Immer",
+      position: "FrontEnd Developer",
+      url: "https://immer.world",
+      startDate: "01-07-2023",
+      endDate: null,
+      summary: "Desarrollar WebApp & Landing Page de la empresa, utilizando NextJs con ReactJs como principal framework, creando las páginas proporcionadas por el equipo UX/UI y luego creando las conexiones con el backend para su completo funcionamiento.",
+      highlights: [
+        "Entered as Volunteer, upgraded to Developer after 2 months"
+      ]
+    },
+    {
+      name: "Inmobiliaria Centro",
+      position: "Desarrollador Web",
+      startDate: "01-05-2022",
+      endDate: "25-11-2022",
+      summary: "Creación de página Web funcional con la idea de no solo mostrar las casas, sino que también manejar alquileres, ventas y clientes de la inmobiliaria. Se utilizó Python con Flask como tecnologías y MySQL para el manejo de las bases de datos."
+    },
+    {
+      name: "Municipalidad de Coronel Rosales",
+      position: "Pasantía - Técnico en Redes",
+      url: "http://www.rosalesmunicipio.gob.ar",
+      startDate: "01-08-2021",
+      endDate: "01-12-2021",
+      summary: "Pasantía de 4 meses que consistía en el mantenimiento y solución de problemas en la red interna y los servidores de la municipalidad. Utilizando servidores Apache, aparatos Cisco e implementación de protocolos IPv4, DHCP, SMTP, STP para la configuración de los"
+    }]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">                  
+    {
+        EXPERIENCE.map(experience =>(
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience}/>
+            </li>
+        ))
+    }
+</ol>
+
