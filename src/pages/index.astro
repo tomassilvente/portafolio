@@ -6,6 +6,7 @@ import SocialPill from '../components/SocialPill.astro'
 import Experience from '../components/Experience.astro'
 import SectionContainer from '../components/SectionContainer.astro'
 import Proyects from '../components/Proyects.astro'
+import LittleProyects from '../components/LittleProyects.astro'
 
 import Linkedin from '../icons/Linkedin.astro';
 import GitHub from '../icons/GitHub.astro';
@@ -57,6 +58,11 @@ import Code from '../icons/Code.astro';
 				Proyectos
 			</h2>
 			<Proyects />
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
+				<Code class="size-7"/>
+				Otros Pequeños Proyectos
+			</h2>
+			<LittleProyects />
 		</SectionContainer>
 	</main>
 </Layout>
