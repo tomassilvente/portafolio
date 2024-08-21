@@ -12,6 +12,24 @@ const PROJECTS = [
     tags: ['ReactJs','TailWindCSS','HTML','JavaScript']
 },
 {
+    title: 'Libreta Clientes',
+    description: 'Ejecutable .exe creado con Python y la librería Tk-Int, con el simple propósito de agendar contactos.',
+    link: '/projects/libreta-clientes.exe',
+    download: true,
+    github: '#',
+    image: '/projects/Libreta.webp',
+    tags: ['Python','Tk-Int']
+},
+{
+    title: 'Portfolio de Fotografía',
+    description: 'Pequeña Web solo con FrontEnd con el objetivo de mostrar otro lado mío, un hobbie que empezó hace un año y al cual le dedico mucho tiempo de estudio y práctica.',
+    link: 'https://tomassilventeph.netlify.app',
+    download: false,
+    github: '#',
+    image: '/projects/ph.png',
+    tags: ['HTML','CSS','JavaScript','ReactJs']
+},
+{
     title: 'Web para Termoli Cafetería.',
     description: 'Ultra simple Web para confitería local, hecha para una simple muestra de sus principales platos y la carta ofrecida al público.',
     link: 'https://termoli-cafe.netlify.app',
@@ -48,7 +66,7 @@ const PROJECTS = [
     tags: ['React','HTML','CSS','JS','API']
 },
 {
-    title: 'Translator(ES-EN) Web',
+    title: 'Translator (ES-EN) Web',
     description: 'Página Web que devuleve la traducción al Español de un texto en Inglés.',
     link: 'https://translator-tomassilvente.netlify.app',
     download: false,
@@ -66,12 +84,36 @@ const PROJECTS = [
     tags: ['React','HTML','CSS','JS','API','Tailwind']
 }]
 ---
-<div class='md:grid grid-cols-2 gap-x-8'>
+
     {PROJECTS.map(({ title, description, tags, image, download, link }) =>(
-        <article class="my-5 mb-20 md:h-[750px] ">
-            <h3 class="text-2xl font-semibold text-[#90f4ff] mb-2">{title}</h3>
-            <p class="text-lg mb-7 text-pretty md:h-[200px]">{description}</p>    
-            <ul class="flex gap-4 mt-7 flex-wrap mb-6 lg:h-[90px]">
+        <article class="my-5 md:flex items-start w-full">
+            {
+            image?
+                <img 
+                    class="rounded-lg shadow-2xl shadow-white/15  mb-[35px] md:m-0 w-[25%] mx-auto h-[10%]"
+                    src={image} 
+                    alt={title}
+                    />
+            : ''
+        }
+        <div class="md:ml-[45px] mx-auto"> 
+            <h3 class=" font-semibold text-[#90f4ff] mb-2">{title}</h3>
+            <p class="text-sm mb-3 text-pretty">{description}</p>    
+            {download? (
+                <a href={link} download={`${title}.exe`} class="inline-flex items-center px-2 py-1 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                    Descargar Archivo
+                </a>
+            )
+            :(
+                <a href={link} target="_blank" class="inline-flex items-center px-2 py-1 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+                    Ir a La Web
+                    <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </a>
+            )
+        }
+            <ul class="flex gap-2 mt-7 flex-wrap mb-6">
                 {tags.map(tag =>(
                     <li>
                         <SocialPill >
@@ -80,31 +122,6 @@ const PROJECTS = [
                     </li>
                 ))}
             </ul>
-            {download? (
-                <a href={link} download={`${title}.exe`} class="inline-flex items-center px-4 py-2 mb-5 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
-                    Descargar Archivo
-                </a>
-            )
-            :(
-                <a href={link} target="_blank" class="inline-flex items-center px-4 py-2 mb-5 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">
-                    Ir a La Web
-                    <svg class="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            )
-        }
-            {
-                image?
-                    <img 
-                    class="rounded-lg shadow-2xl shadow-white/15  items-center"
-                    src={image} 
-                    alt={title}
-                    />
-                : ''
-            }
-            
-            
+        </div>
         </article>
     ))}
-</div>
